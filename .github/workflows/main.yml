@@ -27,4 +27,4 @@ jobs:
         run: npm install
 
       - name: Rodar Testes Jest
-        run: npm test
+        run: run: npm install && npm test
