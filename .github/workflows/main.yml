@@ -15,6 +15,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+  
+
+    steps:
       - name: Checkout do codigo
         uses: actions/checkout@v4
 
@@ -23,8 +26,12 @@ jobs:
         with:
           node-version: '18' 
 
+    
       - name: Instalar dependencias
-        run: npm install
+      
+        run: npm ci --production=false 
+
 
       - name: Rodar Testes Jest
-        run: run: npm install && npm test
+  
+        run: npm test
