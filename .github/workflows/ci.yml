@@ -1,0 +1,26 @@
+name: CI - Teste Matriz JS
+
+on:
+  push:
+    branches: [ main ] # Executa quando há push na branch principal
+  pull_request:
+    branches: [ main ] # Executa quando há um Pull Request (PR)
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest # O sistema operacional onde o job será executado
+
+    steps:
+    - name: ⬇️ Checkout do Código
+      uses: actions/checkout@v4 # Clona o repositório
+
+    - name: ⚙️ Configurar Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18' # Versão estável do Node.js
+
+    - name: 🧪 Executar Testes da Matriz
+      # Este comando assume que você usará o Node.js para executar diretamente seu arquivo de testes.
+      # Certifique-se de que seu `matrizjs.test.js` está configurado para sair com código de erro (process.exit(1))
+      # se algum teste falhar.
+      run: node matrizjs.test.js
